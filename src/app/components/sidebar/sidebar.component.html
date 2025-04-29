@@ -1,0 +1,27 @@
+<div class="sidebar-container">
+  <div class="sidebar-header">
+    <h2>Menu</h2>
+  </div>
+
+  <!-- Guest -->
+  <ng-container *ngIf="!isLoggedIn">
+    <ul class="sidebar-links">
+      <li (click)="navigateTo('/compare')">📊 Model Comparison</li>
+    </ul>
+  </ng-container>
+
+  <!-- Authenticated -->
+  <ng-container *ngIf="isLoggedIn">
+    <ul class="sidebar-links">
+      <li (click)="navigateTo('/profile')" [class.active]="isActive('/profile')">👤 Profile</li>
+      <li (click)="navigateTo('/dashboard')" [class.active]="isActive('/dashboard')">📈 Dashboard</li>
+      <hr class="sidebar-separator" />
+      <li (click)="navigateTo('/map')" [class.active]="isActive('/map')">🗺️ Map View</li>
+      <li (click)="navigateTo('/panels')" [class.active]="isActive('/panels')">☀️ My Panels</li>
+      <li (click)="navigateTo('/panels/manage')" [class.active]="isActive('/panels/manage')">🛠️ Manage Panels</li>
+      <hr class="sidebar-separator" />
+      <li (click)="navigateTo('/compare')" [class.active]="isActive('/compare')">📊 Model Comparison</li>
+
+    </ul>
+  </ng-container>
+</div>

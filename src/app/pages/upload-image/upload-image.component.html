@@ -1,0 +1,14 @@
+<div class="upload-wrapper">
+  <form (submit)="onSubmit(); $event.preventDefault()">
+    <input type="file" (change)="onFileSelected($event)" />
+    <button type="submit" [disabled]="!selectedFile || loading">Trimite</button>
+  </form>
+
+  <div *ngIf="previewUrl" class="preview">
+    <p>Preview imagine:</p>
+    <img [src]="previewUrl" alt="Preview" width="200" />
+  </div>
+
+  <div *ngIf="loading">Se procesează imaginea...</div>
+  <div *ngIf="prediction">Predicție: {{ prediction }}</div>
+</div>

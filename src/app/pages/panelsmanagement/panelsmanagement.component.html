@@ -1,0 +1,23 @@
+<div class="manage-header">
+  <h2>Manage Your Panels</h2>
+  <button class="panel-btn" (click)="openAddPanelModal()">
+    ➕ Add Panel
+  </button>
+</div>
+
+
+<div class="panels-list">
+    <div class="panel-card" *ngFor="let panel of panels">
+      <div class="panel-info">
+        <h3>{{ panel.name }}</h3>
+        <p>Latitude: {{ panel.latitude }}</p>
+        <p>Longitude: {{ panel.longitude }}</p>
+        <p>Id: {{ panel.id }}</p>
+      </div>
+      <div class="panel-card-actions">
+        <button class="panel-btn edit-btn" (click)="openEditPanel(panel)">✏️ Edit</button>
+        <button class="panel-btn delete-btn" (click)="openDeletePanel(panel)">❌ Delete</button>
+      </div>
+    </div>
+</div>
+

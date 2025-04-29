@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <i class="fa fa-home" (click)="goHome()" style="cursor: pointer;"></i>
+    <span class="logo-text">SolarVision</span>
+  </div>
+
+  <div class="navbar-center">
+<!--    <p style="color: white">TEST</p>-->
+    <button (click)="goToQuickCheck()" class="quick-check-btn">Quick Check</button>
+  </div>
+
+  <div class="navbar-right">
+<!--    <p style="color: white; margin-right: 1rem;">TEST</p>-->
+    <button *ngIf="!isLoggedIn" class="login-btn" (click)="goLogin()">Login</button>
+    <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</nav>

@@ -1,0 +1,84 @@
+.sidebar-container {
+  width: 175px;
+  height: 100vh;
+  background-color: #242436;
+  color: #eee;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-header {
+  margin-bottom: 1.25rem;
+  padding-left: 0.3rem;
+}
+
+.sidebar-header h2 {
+  font-size: 1.15rem; /* ⬅️ Poți ajusta dimensiunea titlului de meniu */
+  font-weight: 600;
+  color: #bd93f9;
+  margin: 0;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-links li {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.98rem; /* ⬅️ Poți face mai mare/mic */
+  font-weight: 500;
+  color: #ddd;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-links li:hover {
+  background-color: #8e44ad;
+  color: white;
+  transform: translateX(3px); /* ⬅️ animatie spre dreapta la hover */
+}
+
+.sidebar-links li.active {
+  background-color: #8e44ad;
+  color: white;
+  border-left: 4px solid #bd93f9; /* ⬅️ bară mov pe stânga */
+  padding-left: 0.6rem; /* ⬅️ compensare pentru bară */
+}
+
+.sidebar-links li img {
+  width: 25px;
+  height: 25px;
+  filter: drop-shadow(0 0 2px #8e44ad); /* ⬅️ glow subtil pentru iconițe */
+}
+
+/* === Linie separator opțională între secțiuni === */
+.sidebar-divider {
+  border: none;
+  height: 1px;
+  background-color: #3c3c50;
+  margin: 1rem 0;
+}
+
+.sidebar-separator {
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, #5e5e80, #8e44ad, #5e5e80);
+  opacity: 0.7; /* ⬅️ Mai vizibil */
+  margin: 0.2rem 0; /* ⬅️ Spațiu vertical puțin mai generos */
+  border-radius: 10px; /* ⬅️ Colțuri ușor rotunjite, aspect modern */
+}
+
