@@ -1,4 +1,19 @@
+<div class="map-toggle-container">
+  <button
+    class="map-toggle-btn"
+    [ngClass]="{ 'active': !isSatelliteView }"
+    (click)="setMapStyle(false)"
+    title="Standard Map View">
+    🗺️
+  </button>
+
+  <button
+    class="map-toggle-btn"
+    [ngClass]="{ 'active': isSatelliteView }"
+    (click)="setMapStyle(true)"
+    title="Satellite View">
+    🛰️
+  </button>
+</div>
+
 <div id="map"></div>
-<button class="map-toggle-btn" (click)="toggleMapStyle()" [title]="isSatelliteView ? 'Satellite View' : 'Map View'">
-  {{ isSatelliteView ? '🗺️' : '🛰️' }}
-</button>

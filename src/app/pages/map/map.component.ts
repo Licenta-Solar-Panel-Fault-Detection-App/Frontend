@@ -1,11 +1,15 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'esri-leaflet';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-map',
   standalone: true,
   templateUrl: './map.component.html',
+  imports: [
+    NgClass
+  ],
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements AfterViewInit {
@@ -43,16 +47,17 @@ export class MapComponent implements AfterViewInit {
     this.openStreetLayer.addTo(this.map); // default
   }
 
-  toggleMapStyle(): void {
-    if (this.isSatelliteView) {
-      this.map.removeLayer(this.esriLayer);
-      this.map.removeLayer(this.esriLabels);
-      this.openStreetLayer.addTo(this.map);
-    } else {
+  setMapStyle(satellite: boolean): void {
+    if (satellite) {
       this.map.removeLayer(this.openStreetLayer);
       this.esriLayer.addTo(this.map);
       this.esriLabels.addTo(this.map);
+    } else {
+      this.map.removeLayer(this.esriLayer);
+      this.map.removeLayer(this.esriLabels);
+      this.openStreetLayer.addTo(this.map);
     }
-    this.isSatelliteView = !this.isSatelliteView;
+    this.isSatelliteView = satellite;
   }
+
 }
