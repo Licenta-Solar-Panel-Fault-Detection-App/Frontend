@@ -1,0 +1,158 @@
+.profile-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #140c1f;
+  border-radius: 1rem;
+  box-shadow: 0 0 30px rgba(206, 140, 255, 0.4);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-container h2 {
+  text-align: center;
+  color: #d189ff;
+  margin-bottom: 2rem;
+}
+
+.profile-field {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.profile-label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.profile-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c142e;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.profile-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background-color: #1c142e;
+  border: 2px solid #6a2aad;
+  color: #fff;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.profile-input:focus {
+  border-color: #d189ff;
+  box-shadow: 0 0 12px rgba(209, 137, 255, 0.6);
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn-icon {
+  background-color: #8a2be2;
+  border: 2px solid #a855f7;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  background-color: #6417c1;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.btn-icon:active {
+  transform: scale(0.95);
+}
+
+.btn-icon.save-active {
+  background-color: #8a2be2;
+  color: #ffffff;
+}
+
+.btn-icon.cancel {
+  background-color: #e6004c;
+  border-color: #ff669a;
+  color: #fff;
+}
+
+.btn-icon.cancel:hover {
+  background-color: #b3003b;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.profile-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action-btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+.change-password-btn {
+  background-color: #8a2be2;
+  color: #ffffff;
+}
+
+.change-password-btn:hover {
+  background-color: #6417c1;
+  color: #ffffff;
+  transform: scale(1.03);
+}
+
+.delete-account-btn {
+  background-color: #e6004c;
+  color: #ffffff;
+}
+
+.delete-account-btn:hover {
+  background-color: #b3003b;
+  color: #ffffff;
+  transform: scale(1.03);
+}
+
+.password-fields {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field-display,
+.field-edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.field-edit input {
+  flex: 1;
+}

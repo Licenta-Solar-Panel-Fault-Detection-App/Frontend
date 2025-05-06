@@ -1,0 +1,25 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Contact Info</h2>
+
+    <div class="info-group">
+      <label>Email:</label>
+      <div class="info-row">
+        <span>{{ email }}</span>
+        <button class="btn-copy" (click)="copy(email)">📋</button>
+      </div>
+    </div>
+
+    <div class="info-group">
+      <label>Phone Number:</label>
+      <div class="info-row">
+        <span>{{ phone }}</span>
+        <button class="btn-copy" (click)="copy(phone)">📋</button>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-submit" (click)="close()">Exit</button>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import {ContactComponent} from '../../pages/contact/contact.component';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +15,11 @@ import { CommonModule } from '@angular/common';
 export class SidebarComponent {
   isLoggedIn = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dialog: MatDialog) {}
+
+  openContact() {
+    this.dialog.open(ContactComponent, { width: '450px' });
+  }
 
   ngDoCheck(): void {
     this.isLoggedIn = !!localStorage.getItem('user_id');

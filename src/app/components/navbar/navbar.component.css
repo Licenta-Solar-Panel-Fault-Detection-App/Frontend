@@ -26,6 +26,12 @@
   font-weight: 600;
   font-size: 1.2rem;
   color: #eee;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.logo-text:hover {
+  color: #8e44ad;
 }
 
 .navbar-left i {

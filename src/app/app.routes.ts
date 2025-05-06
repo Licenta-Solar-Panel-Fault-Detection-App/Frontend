@@ -9,20 +9,28 @@ import {MapComponent} from './pages/map/map.component';
 import {CompareComponent} from './pages/compare/compare.component';
 import {PanelsComponent} from './pages/panels/panels.component';
 import {PanelsmanagementComponent} from './pages/panelsmanagement/panelsmanagement.component';
+import {GuestGuard} from './guards/guest/guest.guard';
+import {AuthGuard} from './guards/auth/auth.guard';
 
 export const routes: Routes = [
+
   { path: '', component: HomeComponent },
-  { path: 'upload', component: UploadImageComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'map', component: MapComponent },
   { path: 'compare', component: CompareComponent },
-  { path: 'panels', component: PanelsComponent },
-  { path: 'panels/manage', component: PanelsmanagementComponent },
+  { path: 'upload', component: UploadImageComponent },
 
 
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'quick-check', redirectTo: 'upload', pathMatch: 'full' }
+  // Guest only
+  { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
 
+  // Authenticated users
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'map', component: MapComponent, canActivate: [AuthGuard] },
+  { path: 'panels', component: PanelsComponent, canActivate: [AuthGuard] },
+  { path: 'panels/manage', component: PanelsmanagementComponent, canActivate: [AuthGuard] },
+
+  // Redirect logic
+  { path: 'quick-check', redirectTo: 'upload', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];

@@ -22,7 +22,7 @@ export class NavbarComponent {
   }
 
   goToQuickCheck() {
-    this.router.navigate(['/quick-check']);
+    this.router.navigate(['/upload']);
   }
 
   goHome() {

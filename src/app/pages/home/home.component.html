@@ -1,1 +1,44 @@
-<p>home works!</p>
+
+<div class="home-container">
+  <!-- Auth Warning -->
+  <div *ngIf="!isLoggedIn" class="auth-warning">
+    🔒 Authenticate to access all features
+  </div>
+
+  <!-- Logo & Title -->
+  <div class="logo-section">
+    <img src="assets/images/logo.png" alt="SolarVision Logo" class="logo-img" />
+  </div>
+
+  <!-- Welcome Message -->
+  <div class="welcome-section">
+    <h2 class="welcome-title">
+      Welcome to SolarVision<span *ngIf="username">, {{ username }}</span>
+    </h2>
+    <p class="description">
+      Solar energy is a powerful alternative to traditional sources of electricity.
+      Unlike conventional methods that generate pollution and accelerate climate change,
+      solar panels harness clean and renewable energy directly from the sun.
+      It's time to make a smart and sustainable choice for our planet and future generations.
+    </p>
+    <img src="assets/images/descriere.png" alt="Solar Panel with Sun" class="main-img" />
+  </div>
+
+  <!-- Explore Features -->
+  <div class="explore-section">
+    <div class="explore-text">
+      <h2 class="explore-title">Explore SolarVision</h2>
+      <ul>
+
+        <li>✅ Upload panel photos and get instant defect classification</li>
+        <li>✅ Manage and localize your panels on an interactive map</li>
+        <li>✅ Compare deep learning models and choose your favorite</li>
+        <li>✅ Receive alerts when your panels need cleaning or servicing</li>
+
+      </ul>
+    </div>
+    <div class="explore-image">
+      <img src="assets/images/explore.png" alt="Explore SolarVision" />
+    </div>
+  </div>
+</div>

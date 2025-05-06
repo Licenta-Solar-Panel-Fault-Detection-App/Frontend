@@ -22,7 +22,28 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/login`, credentials);
   }
 
+  getUserInfo(userId: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${userId}`);
+  }
+
   isLoggedIn(): boolean {
     return !!localStorage.getItem('user_id');
+  }
+
+  updateUsername(userId: string, username: string): Observable<any> {
+    return this.http.put(`${this.baseUrl}/user/${userId}/update/username`, { username });
+  }
+
+  updateEmail(userId: string, email: string): Observable<any> {
+    return this.http.put(`${this.baseUrl}/user/${userId}/update/email`, { email });
+  }
+
+  changePassword(userId: string, password: string): Observable<any> {
+    return this.http.put(`${this.baseUrl}/user/${userId}/update/password`, { password });
+  }
+
+
+  deleteAccount(userId: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/user/${userId}/delete`);
   }
 }

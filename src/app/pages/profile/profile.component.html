@@ -1,1 +1,71 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <h2 class="profile-title">Profile</h2>
+
+  <!-- Username Field -->
+  <div class="profile-field">
+    <label>Name:</label>
+    <div *ngIf="!editingUsername" class="field-display">
+      {{ username }}
+      <button class="btn-icon" (click)="startEditUsername()">✏️</button>
+    </div>
+    <div *ngIf="editingUsername" class="field-edit">
+      <input class="profile-input" [(ngModel)]="newUsername" />
+      <div class="edit-buttons">
+        <button class="btn-icon"
+                [class.save-active]="usernameChanged()"
+                [disabled]="!usernameChanged()"
+                (click)="saveUsername()">✔️</button>
+        <button class="btn-icon cancel" (click)="cancelEditUsername()">❌</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Field -->
+  <div class="profile-field">
+    <label>Email:</label>
+    <div *ngIf="!editingEmail" class="field-display">
+      {{ email }}
+      <button class="btn-icon" (click)="startEditEmail()">✏️</button>
+    </div>
+    <div *ngIf="editingEmail" class="field-edit">
+      <input class="profile-input" [(ngModel)]="newEmail" />
+      <div class="edit-buttons">
+        <button class="btn-icon"
+                [class.save-active]="emailChanged()"
+                [disabled]="!emailChanged()"
+                (click)="saveEmail()">✔️</button>
+        <button class="btn-icon cancel" (click)="cancelEditEmail()">❌</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password -->
+  <div class="profile-actions">
+    <button class="action-btn change-password-btn" (click)="togglePasswordForm()">Change Password</button>
+
+    <div *ngIf="showPasswordForm" class="password-fields">
+      <input
+        class="profile-input"
+        type="password"
+        placeholder="New Password"
+        [formControl]="newPasswordControl" />
+
+      <input
+        class="profile-input"
+        type="password"
+        placeholder="Retype New Password"
+        [formControl]="retypePasswordControl" />
+
+
+      <div class="edit-buttons">
+        <button class="btn-icon"
+                [class.save-active]="canSavePassword()"
+                [disabled]="!canSavePassword()"
+                (click)="savePassword()">✔️</button>
+        <button class="btn-icon cancel" (click)="togglePasswordForm()">❌</button>
+      </div>
+    </div>
+
+    <button class="action-btn delete-account-btn" (click)="deleteAccount()">Delete Account</button>
+  </div>
+</div>
