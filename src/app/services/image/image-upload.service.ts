@@ -11,9 +11,13 @@ export class ImageUploadService {
 
   constructor(private http: HttpClient) {}
 
-  uploadImage(file: File): Observable<any> {
+  uploadImage(file: File, model: string, panelId?: number): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('model', model);
+    if (panelId !== undefined) {
+      formData.append('panel_id', panelId.toString());
+    }
     return this.http.post(this.apiUrl, formData);
   }
 }

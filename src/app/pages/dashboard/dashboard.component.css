@@ -1,0 +1,125 @@
+.dashboard-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #d189ff;
+  margin-bottom: 2rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #1a1226;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(209, 137, 255, 0.2);
+  text-align: center;
+}
+
+.model-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.model-card {
+  background-color: #2a1d3a;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 140px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filters button {
+  background-color: #140c1f;
+  border: 1px solid #d189ff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filters button.active {
+  background-color: #d189ff;
+  color: black;
+}
+
+.predictions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prediction-card {
+  border-left: 5px solid #d189ff;
+  background-color: #1a1226;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(209, 137, 255, 0.1);
+}
+
+.report-warning {
+  color: yellow;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  background-color: #2e1c3d;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn.delete {
+  background-color: #802020;
+}
+
+.btn.edit {
+  background-color: #208060;
+}
+
+.btn.delete-report {
+  background-color: #a35454;
+}
+
+.no-checks {
+  color: #ccc;
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+

@@ -11,6 +11,7 @@ import {PanelsComponent} from './pages/panels/panels.component';
 import {PanelsmanagementComponent} from './pages/panelsmanagement/panelsmanagement.component';
 import {GuestGuard} from './guards/guest/guest.guard';
 import {AuthGuard} from './guards/auth/auth.guard';
+import {PanelHistoryComponent} from './pages/panel-history/panel-history.component';
 
 export const routes: Routes = [
 
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'map', component: MapComponent, canActivate: [AuthGuard] },
   { path: 'panels', component: PanelsComponent, canActivate: [AuthGuard] },
   { path: 'panels/manage', component: PanelsmanagementComponent, canActivate: [AuthGuard] },
+  { path: 'panels/history', component: PanelHistoryComponent, canActivate: [AuthGuard] },
 
   // Redirect logic
   { path: 'quick-check', redirectTo: 'upload', pathMatch: 'full' },

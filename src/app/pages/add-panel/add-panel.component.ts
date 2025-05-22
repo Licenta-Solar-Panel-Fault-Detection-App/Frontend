@@ -15,6 +15,8 @@ import {PanelService} from '../../services/panel/panel.service';
 })
 export class AddPanelComponent {
   panelForm: FormGroup;
+  latitudeDisabled: boolean = false;
+  longitudeDisabled: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -22,6 +24,8 @@ export class AddPanelComponent {
     private dialogRef: MatDialogRef<AddPanelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    this.latitudeDisabled = !!data?.latitude;
+    this.longitudeDisabled = !!data?.longitude;
     this.panelForm = this.fb.group({
       name: ['', Validators.required],
       latitude: [data?.latitude || '', [Validators.required, Validators.pattern(/^-?\d+(\.\d+)?$/)]],

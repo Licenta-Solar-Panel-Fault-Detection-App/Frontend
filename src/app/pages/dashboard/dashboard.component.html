@@ -1,1 +1,62 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <h2 class="dashboard-title">Dashboard</h2>
+
+  <!-- 🔹 Statistici Generale -->
+  <div class="stats">
+    <div class="stat-card">
+      <p>Total Predictions</p>
+      <h3>{{ stats?.total_predictions || 0 }}</h3>
+    </div>
+    <div class="stat-card">
+      <p>Reported Predictions</p>
+      <h3>{{ stats?.total_reported || 0 }}</h3>
+    </div>
+  </div>
+
+  <!-- 🔹 Statistici per Model -->
+  <div class="model-stats">
+    <ng-container *ngIf="stats">
+      <div *ngFor="let model of stats.models | keyvalue" class="model-card">
+        <strong>{{ model.key | uppercase }}</strong><br>
+        Total: {{ model.value.total }}<br>
+        Reported: {{ model.value.reported }}
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- 🔹 Filtre -->
+  <div class="filters">
+    <button [class.active]="filterType === 'all'" (click)="setFilterType('all')">All</button>
+    <button [class.active]="filterType === 'reported'" (click)="setFilterType('reported')">Reported</button>
+
+    <button [class.active]="isModelActive('resnet')" (click)="toggleModel('resnet')">ResNet</button>
+    <button [class.active]="isModelActive('vgg')" (click)="toggleModel('vgg')">VGG</button>
+    <button [class.active]="isModelActive('efficientnet')" (click)="toggleModel('efficientnet')">EfficientNet</button>
+    <button [class.active]="isModelActive('mobilenet')" (click)="toggleModel('mobilenet')">MobileNet</button>
+  </div>
+
+  <!-- 🔹 Lista Predicții -->
+  <div class="predictions">
+    <div *ngIf="predictions.length === 0" class="no-checks">
+      <div *ngIf="predictions.length === 0" class="no-checks">
+        {{ stats?.total_predictions === 0 ? 'No predictions made yet.' : 'No predictions found for this selection.' }}
+      </div>
+    </div>
+
+    <div *ngFor="let pred of predictions" class="prediction-card">
+      <p><strong>Panel:</strong> {{ pred.panel_id ?? 'Quick Check' }}</p>
+      <p><strong>Model:</strong> {{ pred.model }}</p>
+      <p><strong>Status:</strong> {{ pred.status }}</p>
+      <p><strong>Date:</strong> {{ pred.timestamp | date:'dd/MM/yyyy HH:mm' }}</p>
+
+      <p *ngIf="pred.report_id" class="report-warning">Reported</p>
+      <p *ngIf="pred.description"><strong>Description:</strong> {{ pred.description }}</p>
+
+      <div class="actions">
+        <button class="btn delete" (click)="onDeletePrediction(pred.id)">Delete Prediction</button>
+        <button *ngIf="pred.report_id" class="btn edit" (click)="onEditReport(pred.report_id)" >Edit Report</button>
+        <button *ngIf="pred.report_id" class="btn delete-report" (click)="onDeleteReport(pred.report_id)">Delete Report</button>
+      </div>
+    </div>
+  </div>
+</div>

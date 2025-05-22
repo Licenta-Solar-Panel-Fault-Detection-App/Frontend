@@ -40,7 +40,7 @@
 
 
 .sidebar-header {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.7rem;
   padding-left: 0.3rem;
 }
 
@@ -57,7 +57,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .sidebar-links li {
@@ -105,7 +105,7 @@
   height: 3px;
   background: linear-gradient(to right, #5e5e80, #8e44ad, #5e5e80);
   opacity: 0.7; /* ⬅️ Mai vizibil */
-  margin: 0.2rem 0; /* ⬅️ Spațiu vertical puțin mai generos */
+  margin: 0.1rem 0; /* ⬅️ Spațiu vertical puțin mai generos */
   border-radius: 10px; /* ⬅️ Colțuri ușor rotunjite, aspect modern */
 }
 

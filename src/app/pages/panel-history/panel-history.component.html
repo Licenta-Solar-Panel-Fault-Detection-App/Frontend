@@ -1,0 +1,17 @@
+<div class="history-container">
+  <h2>History for panel: {{ panelName }}</h2>
+  <button class="back-btn" (click)="goBack()">⏪ Back</button>
+
+
+  <div *ngIf="checks.length === 0" class="no-checks">
+    No predictions found for this panel.
+  </div>
+
+  <div *ngFor="let check of checks" class="check-card">
+    <p><strong>Model:</strong> {{ check.model }}</p>
+    <p><strong>Status:</strong> {{ check.status }}</p>
+    <p><strong>Date:</strong> {{ check.timestamp | date:'short' }}</p>
+
+    <p *ngIf="check.hasReport" class="report-warning">⚠️ Reported</p>
+  </div>
+</div>

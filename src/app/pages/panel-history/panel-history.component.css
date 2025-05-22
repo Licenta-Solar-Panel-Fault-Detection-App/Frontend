@@ -1,0 +1,88 @@
+.history-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.history-container h2 {
+  color: #d189ff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.check-card {
+  border: 1px solid #d189ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #1a1226;
+  color: white;
+  box-shadow: 0 0 15px rgba(209, 137, 255, 0.1);
+  transition: transform 0.2s ease;
+  border-left: 5px solid #d189ff;
+  padding-left: 1rem;
+}
+
+.check-card:hover {
+  transform: scale(1.01);
+}
+
+.report-warning {
+  color: #ffeb3b;
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  background-color: transparent;
+  border: 2px solid #d189ff;
+  color: #d189ff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #d189ff;
+  color: white;
+  transform: scale(1.05);
+}
+
+.no-checks {
+  text-align: center;
+  margin-top: 3rem;
+  color: #aaa;
+  font-size: 1.1rem;
+  background-color: #1a1226;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px dashed #d189ff;
+  box-shadow: 0 0 10px rgba(209, 137, 255, 0.1);
+  animation: fadeIn 0.5s ease;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+

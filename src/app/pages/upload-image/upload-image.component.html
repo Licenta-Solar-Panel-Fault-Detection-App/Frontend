@@ -1,14 +1,94 @@
 <div class="upload-wrapper">
-  <form (submit)="onSubmit(); $event.preventDefault()">
-    <input type="file" (change)="onFileSelected($event)" />
-    <button type="submit" [disabled]="!selectedFile || loading">Trimite</button>
-  </form>
-
-  <div *ngIf="previewUrl" class="preview">
-    <p>Preview imagine:</p>
-    <img [src]="previewUrl" alt="Preview" width="200" />
+  <div class="upload-header"  *ngIf="panelName">
+    <button class="back-btn" (click)="goBack()">⏪ Back</button>
   </div>
 
-  <div *ngIf="loading">Se procesează imaginea...</div>
-  <div *ngIf="prediction">Predicție: {{ prediction }}</div>
+  <h2 class="panel-info">{{ panelName ? 'Check Panel' : 'Quick Check' }}</h2>
+
+
+  <h4 class="panel-name" *ngIf="panelName">
+    {{ panelName }}
+  </h4>
+
+  <div *ngIf="panelName" class="panel-subinfo">
+    {{ panelCoordinates }}
+  </div>
+
+  <!-- 🎯 Select Model -->
+  <div class="model-selector">
+    <p class="select-title">Select Model:</p>
+    <div class="model-buttons">
+      <button
+        *ngFor="let model of models"
+        [disabled]="!isLoggedIn && model !== 'resnet'"
+        [ngClass]="{
+          'model-btn': true,
+          'active': selectedModel === model,
+          'locked': !isLoggedIn && model !== 'resnet'
+        }"
+        (click)="selectModel(model)"
+      >
+        <ng-container *ngIf="!isLoggedIn && model !== 'resnet'">🔒 </ng-container>
+        {{ model | titlecase }}
+      </button>
+    </div>
+  </div>
+
+  <!-- 📸 Upload / Take Picture -->
+  <div class="upload-actions-wrapper">
+    <p class="upload-title">Provide Image:</p>
+    <div class="upload-actions">
+      <label class="file-label">
+        Upload Image
+        <input type="file" (change)="onFileSelected($event)" hidden />
+      </label>
+      <button class="camera-btn" (click)="openCamera()">Take a Picture</button>
+    </div>
+    <p class="file-name">{{ fileName }}</p>
+
+  </div>
+
+  <!-- 🔍 Preview + Cancel -->
+  <div *ngIf="previewUrl" class="preview">
+    <p>Preview imagine:</p>
+    <img [src]="previewUrl" alt="Preview" class="preview-img" />
+  </div>
+
+  <!-- 🧠 Acțiuni principale -->
+  <div class="action-buttons" *ngIf="selectedFile">
+    <button class="cancel-btn" (click)="cancelImage()">Cancel</button>
+    <button
+      (click)="onSubmit()"
+      [disabled]="!selectedFile || loading"
+      class="predict-btn"
+    >
+      Predict
+    </button>
+    <button
+      *ngIf="prediction && !hasReport"      class="report-btn"
+      (click)="sendReport()"
+    >
+      Report
+    </button>
+  </div>
+  <!-- ⏳ Loading & Result -->
+  <div *ngIf="loading">Processing image...</div>
+  <div *ngIf="prediction" class="prediction-result">
+     Prediction: <span>{{ prediction }}</span>
+  </div>
+  <div *ngIf="hasReport" style="margin-top: 10px; color: #ffd700; font-weight: 500;">
+    ⚠️ Reported
+  </div>
+
+  <!-- 📷 Camera Modal -->
+  <div class="camera-modal" [class.show]="showCamera">
+    <div class="camera-container">
+      <video #video autoplay></video>
+      <div class="camera-controls">
+        <button class="capture-btn" (click)="captureFromCamera()">📸 Capture</button>
+        <button class="close-btn" (click)="closeCamera()">❌ Close</button>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -1,3 +1,12 @@
+<div class="color-guide">
+  <h3 class="guide-title">Pin Color Guide:</h3>
+  <p><span class="dot purple"></span> Your Location</p>
+  <p><span class="dot gray"></span> Not Checked Yet</p>
+  <p><span class="dot green"></span> Working Properly</p>
+  <p><span class="dot orange"></span> Needs Cleaning</p>
+  <p><span class="dot red"></span> Needs Service</p>
+  <p><span class="dot black"></span> Unprocessable</p>
+</div>
 <div class="map-toggle-container">
   <button
     class="map-toggle-btn"
@@ -6,7 +15,6 @@
     title="Standard Map View">
     🗺️
   </button>
-
   <button
     class="map-toggle-btn"
     [ngClass]="{ 'active': isSatelliteView }"
@@ -15,5 +23,7 @@
     🛰️
   </button>
 </div>
+
+<button class="locate-btn" (click)="centerOnUser()" title="Center on your location">📍</button>
 
 <div id="map"></div>

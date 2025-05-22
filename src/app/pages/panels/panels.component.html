@@ -1,36 +1,24 @@
-<p>panels works!</p>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
-<div>Card panou solar</div>
+<div class="manage-header">
+  <h2>My Panels</h2>
+</div>
+
+
+<div class="panels-list">
+  <div class="panel-card" *ngFor="let panel of panels">
+    <div class="panel-info">
+      <h3>{{ panel.name }}</h3>
+      <p>Latitude: {{ panel.latitude }}</p>
+      <p>Longitude: {{ panel.longitude }}</p>
+      <p>Id: {{ panel.id }}</p>
+    </div>
+    <div class="panel-card-actions">
+      <button class="panel-btn check-btn" (click)="goCheck(panel.id, panel.name, panel.latitude, panel.longitude)">📸 Check</button>
+      <button class="panel-btn history-btn" (click)="goHistory(panel.id, panel.name, panel.latitude, panel.longitude)">📜 History</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="panels.length === 0" class="no-panels">
+  No panels registered yet.
+</div>
+
