@@ -4,17 +4,17 @@
   </div>
 
   <!-- Guest -->
-  <ng-container *ngIf="!isLoggedIn">
-    <ul class="sidebar-links">
-      <li (click)="navigateTo('/compare')">📊 Model Comparison</li>
-      <hr class="sidebar-separator" />
-      <div class="locked-icons">
-        <span class="locked-icon">🔒</span>
-        <span class="locked-icon">🔒</span>
-        <span class="locked-icon">🔒</span>
-      </div>
-    </ul>
-  </ng-container>
+<!--  <ng-container *ngIf="!isLoggedIn">-->
+<!--    <ul class="sidebar-links">-->
+<!--      <li (click)="navigateTo('/compare')">📊 Model Comparison</li>-->
+<!--      <hr class="sidebar-separator" />-->
+<!--      <div class="locked-icons">-->
+<!--        <span class="locked-icon">🔒</span>-->
+<!--        <span class="locked-icon">🔒</span>-->
+<!--        <span class="locked-icon">🔒</span>-->
+<!--      </div>-->
+<!--    </ul>-->
+<!--  </ng-container>-->
 
   <!-- Authenticated -->
   <ng-container *ngIf="isLoggedIn">
@@ -26,8 +26,8 @@
       <li (click)="navigateTo('/panels')" [class.active]="isActive('/panels')">☀️ My Panels</li>
       <li (click)="navigateTo('/panels/manage')" [class.active]="isActive('/panels/manage')">🛠️ Manage Panels</li>
       <hr class="sidebar-separator" />
-      <li (click)="navigateTo('/compare')" [class.active]="isActive('/compare')">📊 Model Comparison</li>
-      <hr class="sidebar-separator" />
+<!--      <li (click)="navigateTo('/compare')" [class.active]="isActive('/compare')">📊 Model Comparison</li>-->
+<!--      <hr class="sidebar-separator" />-->
       <li class="contact-btn exit-btn" (click)="openContact()">📞 Contact Us</li>
     </ul>
   </ng-container>

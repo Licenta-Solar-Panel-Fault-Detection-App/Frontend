@@ -36,22 +36,38 @@
 
   <!-- 📸 Upload / Take Picture -->
   <div class="upload-actions-wrapper">
-    <p class="upload-title">Provide Image:</p>
+    <p class="upload-title">Provide Image Or Video:</p>
     <div class="upload-actions">
       <label class="file-label">
-        Upload Image
+        Upload
         <input type="file" (change)="onFileSelected($event)" hidden />
       </label>
-      <button class="camera-btn" (click)="openCamera()">Take a Picture</button>
+      <button class="camera-btn" (click)="openCamera()">Capture</button>
     </div>
     <p class="file-name">{{ fileName }}</p>
 
   </div>
 
   <!-- 🔍 Preview + Cancel -->
-  <div *ngIf="previewUrl" class="preview">
-    <p>Preview imagine:</p>
-    <img [src]="previewUrl" alt="Preview" class="preview-img" />
+  <div *ngIf="previewUrl && selectedFile" class="preview">
+    <p>Preview {{ selectedFile.type.startsWith('video/') ? 'video' : 'image' }}:</p>
+
+    <video
+      *ngIf="selectedFile.type.startsWith('video/')"
+      [src]="previewUrl?.toString()"
+      controls
+      class="preview-img"
+    ></video>
+
+    <!-- 🖼️ Preview imagine -->
+    <img
+      *ngIf="selectedFile.type.startsWith('image/')"
+      [src]="previewUrl?.toString()"
+      alt="Preview"
+      class="preview-img"
+    />
+
+<!--    <img [src]="previewUrl" alt="Preview" class="preview-img" />-->
   </div>
 
   <!-- 🧠 Acțiuni principale -->

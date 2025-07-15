@@ -25,7 +25,7 @@ export class UploadImageComponent {
 
   isLoggedIn = false;
   selectedModel = 'resnet';
-  models = ['resnet', 'vgg', 'efficientnet', 'mobilenet'];
+  models = ['resnet', 'vgg', 'efficientnet'];
 
   panelName: string | null = null;
   panelCoordinates: string | null = null;
@@ -96,9 +96,6 @@ export class UploadImageComponent {
       this.predictionCheckId = null;
       this.hasReport = false;
 
-
-
-
       const reader = new FileReader();
       reader.onload = () => {
         this.previewUrl = reader.result;
@@ -106,6 +103,7 @@ export class UploadImageComponent {
       reader.readAsDataURL(this.selectedFile);
     } else {
       this.fileName = 'No file selected';
+      this.previewUrl = null;
     }
   }
 
